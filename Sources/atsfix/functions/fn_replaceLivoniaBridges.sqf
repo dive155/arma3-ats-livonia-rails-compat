@@ -111,4 +111,15 @@ if (isServer) then {
 			
 		} forEach _spawns;
 	} forEach _specialBridges;
+	
+	// Fuck this piece of rail in particular
+	if (worldName == "green_sea") then {
+		private _brokenRails = nearestTerrainObjects [[12448.8,14459.9,-0.42901],["RAILWAY"],30,false,true];
+		{
+			private _modelName = (getModelInfo _x) select 0;
+			if (_modelName == "rail_track_le_rb_gsfix_f.p3d") then {
+				_x hideObjectGlobal true;
+			};
+		} forEach _brokenRails;
+	};
 };
